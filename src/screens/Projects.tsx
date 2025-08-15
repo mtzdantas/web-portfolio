@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import { ArrowUpFromDot, Swords } from "lucide-react";

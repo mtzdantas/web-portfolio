@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { BrickWall, Link } from "lucide-react";
+import { BrickWall } from "lucide-react";
 import LinkCard from "./components/LinkCard";
 import FlipCard from "./components/FlipCard";
 import ScrollCard from "./components/ScrollCard";
