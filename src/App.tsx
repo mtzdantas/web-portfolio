@@ -53,7 +53,7 @@ export default function App() {
         </motion.h1>
       </AnimatePresence>
 
-      <div className="absolute bottom-[-20px] flex gap-1">
+      <div className="absolute bottom-[-20px] flex">
         <Card
           image="/Skills.png"
           textoHover="Tecnologias e ferramentas que domino e faço uso no meu dia a dia."
@@ -69,9 +69,9 @@ export default function App() {
           textoHover="Toda minha trajétoria que me trouxe até aqui e me tornou quem eu sou hoje."
           defaultText={defaultText}
           setTexto={setTexto}
-          className="text-black"
+          className="-ml-32 text-black"
         >
-          EXPERIÊNCIA
+          EXPERIÊNCIAS
         </Card>
 
         <Card
@@ -79,7 +79,7 @@ export default function App() {
           textoHover="Projetos que desenvolvi, desafios que superei e soluções que criei."
           defaultText={defaultText}
           setTexto={setTexto}
-          className="text-white"
+          className="-ml-32 text-white"
         >
           PROJETOS
         </Card>
@@ -89,7 +89,7 @@ export default function App() {
           textoHover="Acesse meu repositório no GitHub e veja o código por trás dos meus projetos."
           defaultText={defaultText}
           setTexto={setTexto}
-          className="text-white"
+          className="-ml-32 text-white"
         >
           GITHUB
         </Card>
