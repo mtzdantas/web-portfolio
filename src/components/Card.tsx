@@ -1,4 +1,5 @@
 interface CardProps {
+  image: string;
   textoHover: string;
   defaultText: string;
   setTexto: React.Dispatch<React.SetStateAction<string>>;
@@ -7,6 +8,7 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({
+  image,
   textoHover,
   defaultText,
   setTexto,
@@ -17,9 +19,10 @@ const Card: React.FC<CardProps> = ({
     <div
       onMouseEnter={() => setTexto(textoHover)}
       onMouseLeave={() => setTexto(defaultText)}
-      className={`px-4 py-2 rounded ${className}`}
+      className={`relative cursor-pointer transition-transform duration-300 hover:-translate-y-10 ${className}`}
     >
-      {children}
+      <img src={image} alt="Fundo da imagem" className="block w-full h-auto" />
+      <p className="absolute inset-0 ml-4 mt-4 font-bold text-lg">{children}</p>
     </div>
   );
 };
