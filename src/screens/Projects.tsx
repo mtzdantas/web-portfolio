@@ -1,97 +1,69 @@
 import type { FC } from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
-import { ArrowUpFromDot, Swords } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import ProjectsCarousel from "../components/ProjectsCarousel";
 
 interface Projects {
+  name: string;
   image: string;
   link: string;
 }
 
-const projects1: Projects[] = [
-  { image: "/Iphone.png", link: "#" },
-  { image: "/Iphone.png", link: "#" },
-  { image: "/Iphone.png", link: "#" },
-  { image: "/Iphone.png", link: "#" },
-  { image: "/Iphone.png", link: "#" },
-];
-
-const projects2: Projects[] = [
-  { image: "/Iphone.png", link: "#" },
-  { image: "/Iphone.png", link: "#" },
-  { image: "/Iphone.png", link: "#" },
-  { image: "/Iphone.png", link: "#" },
-  { image: "/Iphone.png", link: "#" },
-];
-
 const Projects: FC = () => {
+  const defaultText ="VOLTAR PARA PÁGINA INICIAL";
+  const [texto, setTexto] = useState(defaultText);
+
+  const projects1: Projects[] = [
+    { name: "SITE DE LANÇAMENTO DO IPHONE 16", image: "/Iphone.png", link: "#" },
+    { name: "SITE DE LANÇAMENTO DO IPHONE 16", image: "/Iphone.png", link: "#" },
+    { name: "SITE DE LANÇAMENTO DO IPHONE 16", image: "/Iphone.png", link: "#" },
+    { name: "SITE DE LANÇAMENTO DO IPHONE 16", image: "/Iphone.png", link: "#" },
+  ];
+
+  const projects2: Projects[] = [
+    { name: "SITE DE LANÇAMENTO DO IPHONE 16", image: "/Iphone.png", link: "#" },
+    { name: "SITE DE LANÇAMENTO DO IPHONE 16", image: "/Iphone.png", link: "#" },
+    { name: "SITE DE LANÇAMENTO DO IPHONE 16", image: "/Iphone.png", link: "#" },
+    { name: "SITE DE LANÇAMENTO DO IPHONE 16", image: "/Iphone.png", link: "#" },
+  ];
+
+  const variants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: 20 },
+  };
+
   return (
-    <div id="projects" className="flex flex-col justify-between h-screen bg-gray-900 text-white">
-      {/* Seta para voltar */}
-      <div className="flex items-center justify-center h-18">
-        <ArrowUpFromDot 
-          className="w-8 h-8 p-1 text-white transform transition-all duration-300 hover:-translate-y-2 hover:bg-white hover:text-black cursor-pointer rounded-xl"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
-        />
-      </div>
+    <div id="projects" className="flex flex-col justify-center h-screen bg-gradient-to-r from-[#222222] to-[#121212]  text-white relative">
+      <AnimatePresence mode="wait">
+        <motion.p
+          key={texto}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          variants={variants}
+          transition={{ duration: 0.2 }}
+          className="absolute top-8 left-1/2 -translate-x-1/2 font-bold cursor-pointer"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
+          {texto}
+        </motion.p>
+      </AnimatePresence>
 
       <div>
-        {/* Primeiro Carrossel */}
-        <Swiper
-          modules={[Autoplay]}
-          spaceBetween={24}
-          slidesPerView={3}      
-          loop={true}             
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: false,
-            reverseDirection: false,
-          }}
-          speed={8000}
-          allowTouchMove={false}
-        >
-          {projects1.map((proj) => (
-            <SwiperSlide>
-              <a href={proj.link} target="_blank" rel="noopener noreferrer">
-                <div className="shadow-lg overflow-hidden w-full h-40 md:h-70 lg:h-90">
-                  <img src={proj.image} alt="Tela principal do projeto" className="w-full h-full object-cover" />
-                </div>
-              </a>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <ProjectsCarousel 
+          projects={projects1} 
+          setTexto={setTexto} 
+          defaultText={defaultText}
+          className="mb-6"
+        />
 
-        {/* Segundo Carrossel */}
-        <Swiper
-          modules={[Autoplay]}
-          spaceBetween={24}
-          slidesPerView={3}      
-          loop={true}             
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: false,
-            reverseDirection: true,
-          }}
-          speed={8000}
-          allowTouchMove={false}
-          className="mt-6"
-        >
-          {projects2.map((proj) => (
-            <SwiperSlide>
-              <a href={proj.link} target="_blank" rel="noopener noreferrer">
-                <div className="shadow-lg overflow-hidden w-full h-40 md:h-70 lg:h-90">
-                  <img src={proj.image} alt="Tela principal do projeto" className="w-full h-full object-cover" />
-                </div>
-              </a>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-
-      <div className="flex items-center justify-center h-18 px-2">
-        <p className="flex gap-2"><Swords/> Estamos apenas começando, novos desafios estão por vir.</p>
+        <ProjectsCarousel 
+          projects={projects2} 
+          setTexto={setTexto} 
+          defaultText={defaultText}
+          reverse={true}
+        />
       </div>
     </div>
   );
