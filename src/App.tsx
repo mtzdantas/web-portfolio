@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BrickWall } from "lucide-react";
+import Lottie from "lottie-react";
+import CatMovement from "./assets/CatMovement.json";
 import LinkCard from "./components/LinkCard";
 import FlipCard from "./components/FlipCard";
 import ScrollCard from "./components/ScrollCard";
@@ -10,24 +12,25 @@ export default function App() {
   const defaultText ="Olá! Sou Mateus, um desenvolvedor apaixonado por resolver problemas com linhas de código.";
   const [texto, setTexto] = useState(defaultText);
   const [isMobile, setIsMobile] = useState(false);
-
-  const variants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: 20 },
-  };
+  const lottieRef = useRef<any>(null);
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-
+    
     handleResize();
-
+    
     window.addEventListener("resize", handleResize);
-
+    
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  
+  const variants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: 20 },
+  };
 
   if (isMobile) {
     return (
@@ -57,14 +60,49 @@ export default function App() {
           </motion.h1>
         </AnimatePresence>
 
+        <Lottie
+          lottieRef={lottieRef}
+          animationData={CatMovement}
+          loop={false}
+          autoplay={true}
+          onMouseEnter={() => {
+            lottieRef.current?.playSegments([20, 171], true); 
+            setTexto("— Miiiauu! Miau miau miau!");
+          }}
+          onMouseLeave={() => setTexto(defaultText)}
+          className="w-[250px] h-[180px] absolute bottom-0 right-0"
+        />
+
         <div className="absolute bottom-[-20px] flex">
+
+          <LinkCard
+            link="https://www.linkedin.com/in/mtzdantas/"
+            image="/Linkedin.png"
+            textoHover="Conecte-se comigo no LinkedIn e acompanhe minha jornada profissional."
+            defaultText={defaultText}
+            setTexto={setTexto}
+            className="text-white"
+          >
+            LINKEDIN
+          </LinkCard>
+
+          <LinkCard
+            link="https://github.com/mtzdantas"
+            image="/Github.png"
+            textoHover="Acesse meu repositório no GitHub e veja o código por trás dos meus projetos."
+            defaultText={defaultText}
+            setTexto={setTexto}
+            className="-ml-36 text-white"
+          >
+            GITHUB
+          </LinkCard>
 
           <FlipCard
             image="/Experience.png"
             textoHover="Toda minha trajétoria que me trouxe até aqui e me tornou quem eu sou hoje."
             defaultText={defaultText}
             setTexto={setTexto}
-            className="text-black"
+            className="-ml-36 text-black"
           >
             EXPERIÊNCIAS
           </FlipCard>
@@ -90,16 +128,6 @@ export default function App() {
             PROJETOS
           </ScrollCard>
 
-          <LinkCard
-            link="https://github.com/mtzdantas"
-            image="/Github.png"
-            textoHover="Acesse meu repositório no GitHub e veja o código por trás dos meus projetos."
-            defaultText={defaultText}
-            setTexto={setTexto}
-            className="-ml-36 text-white"
-          >
-            GITHUB
-          </LinkCard>
         </div>
       </div>
 
