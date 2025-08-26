@@ -8,8 +8,8 @@
   --font-prata: "Prata", serif;
 
   /* Variáveis de Cores */
-  --site-background: #ffffff;
-  --title-color: #4E4E4E;
+  --site-background: #030712;
+  --text-color: #FFFFFF;
 }
 
 body {
@@ -18,14 +18,31 @@ body {
 
 h1 {
   font-family: var(--font-prata);
-  color: var(--title-color);
   line-height: 1.2;
+  background: linear-gradient(135deg, #6366f1 0%, #ffffff 50%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 p {
   font-family: var(--font-google);
+  color: var(--text-color);
 }
 
 .swiper-wrapper {
   transition-timing-function: linear !important;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #6366f1 0%, #ffffff 50%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

@@ -1,6 +1,6 @@
+import { ArrowUpRight } from "lucide-react";
 interface LinkCardProps {
   link: string;
-  image: string;
   textoHover: string;
   defaultText: string;
   setTexto: React.Dispatch<React.SetStateAction<string>>;
@@ -10,7 +10,6 @@ interface LinkCardProps {
 
 const LinkCard: React.FC<LinkCardProps> = ({
   link,
-  image,
   textoHover,
   defaultText,
   setTexto,
@@ -24,10 +23,10 @@ const LinkCard: React.FC<LinkCardProps> = ({
       rel="noopener noreferrer"
       onMouseEnter={() => setTexto(textoHover)}
       onMouseLeave={() => setTexto(defaultText)}
-      className={`relative cursor-pointer transition-transform duration-300 hover:-translate-y-10 hover:-rotate-2 ${className}`}
+      className={`group flex glass-effect px-4 py-2 shadow-lg ${className}`}
     >
-      <img src={image} alt="Fundo da imagem" className="block w-full h-auto" />
-      <p className="absolute inset-0 ml-4 mt-4 font-bold text-lg">{children}</p>
+      <p className="font text-md">{children}</p>
+      <ArrowUpRight className="text-white transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"/>
     </a>
   );
 };

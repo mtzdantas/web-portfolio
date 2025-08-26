@@ -38,7 +38,7 @@ const ProjectsCarousel: FC<ProjectsCarouselProps> = ({ projects, setTexto, defau
       {projects.map((proj) => (
         <SwiperSlide>
           <a href={proj.link} target="_blank" rel="noopener noreferrer">
-            <div className="shadow-lg overflow-hidden w-full h-40 md:h-70 lg:h-90">
+            <div className="shadow-lg overflow-hidden w-full md:h-60 lg:h-70 xl:h-80">
               <img
                 src={proj.image}
                 alt={proj.name}

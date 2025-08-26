@@ -13,14 +13,7 @@ const Projects: FC = () => {
   const defaultText ="VOLTAR PARA PÁGINA INICIAL";
   const [texto, setTexto] = useState(defaultText);
 
-  const projects1: Projects[] = [
-    { name: "SITE DE LANÇAMENTO DO IPHONE 16", image: "/Iphone.png", link: "#" },
-    { name: "SITE DE LANÇAMENTO DO IPHONE 16", image: "/Iphone.png", link: "#" },
-    { name: "SITE DE LANÇAMENTO DO IPHONE 16", image: "/Iphone.png", link: "#" },
-    { name: "SITE DE LANÇAMENTO DO IPHONE 16", image: "/Iphone.png", link: "#" },
-  ];
-
-  const projects2: Projects[] = [
+  const projects: Projects[] = [
     { name: "SITE DE LANÇAMENTO DO IPHONE 16", image: "/Iphone.png", link: "#" },
     { name: "SITE DE LANÇAMENTO DO IPHONE 16", image: "/Iphone.png", link: "#" },
     { name: "SITE DE LANÇAMENTO DO IPHONE 16", image: "/Iphone.png", link: "#" },
@@ -44,7 +37,6 @@ const Projects: FC = () => {
           variants={variants}
           transition={{ duration: 0.2 }}
           className="absolute top-8 left-1/2 -translate-x-1/2 font-bold cursor-pointer"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           {texto}
         </motion.p>
@@ -52,17 +44,9 @@ const Projects: FC = () => {
 
       <div>
         <ProjectsCarousel 
-          projects={projects1} 
+          projects={projects} 
           setTexto={setTexto} 
           defaultText={defaultText}
-          className="mb-6"
-        />
-
-        <ProjectsCarousel 
-          projects={projects2} 
-          setTexto={setTexto} 
-          defaultText={defaultText}
-          reverse={true}
         />
       </div>
     </div>
