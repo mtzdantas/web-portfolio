@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import LinkCard from "./components/LinkCard";
 import ScrollCard from "./components/ScrollCard";
@@ -15,7 +15,18 @@ interface Items {
 export default function App() {
   const defaultText ="Olá! Sou Mateus, um desenvolvedor apaixonado por resolver problemas com linhas de código.";
   const [texto, setTexto] = useState(defaultText);
-  
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 500);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const variants = {
     hidden: { opacity: 0, y: -20 },
     visible: { opacity: 1, y: 0 },
@@ -36,7 +47,7 @@ export default function App() {
   return (
     <>
       {/* Navbar */}
-      <nav className="fixed w-fit top-4 left-1/2 -translate-x-1/2 z-50 flex glass-effect px-8 py-4 shadow-lg items-center gap-8 text-gradient rounded-full">
+      <nav className="fixed w-fit justify-center top-4 left-1/2 -translate-x-1/2 z-50 flex items-center glass-effect px-6 sm:px-8 py-3 sm:py-4 shadow-lg gap-8 text-gradient rounded-full">
         {navitens.map((item) => (
           <ScrollCard
             key={item.name}
@@ -46,7 +57,7 @@ export default function App() {
             setTexto={setTexto}
           >
             {item.icon}
-            {item.name} 
+            {!isMobile && item.name}
           </ScrollCard>
         ))}
       </nav>
@@ -86,7 +97,7 @@ export default function App() {
                 exit="exit"
                 variants={variants}
                 transition={{ duration: 0.2 }}
-                className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
+                className="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
               >
                 {texto}
               </motion.h1>
@@ -95,7 +106,6 @@ export default function App() {
         </div>
       </div>
 
-      <Projects />
     </>
   );
 }
