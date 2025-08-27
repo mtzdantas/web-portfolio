@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import LinkCard from "./components/LinkCard";
 import ScrollCard from "./components/ScrollCard";
 import { Flame, Lightbulb, BriefcaseBusiness } from "lucide-react";
+import Skills from "./screens/Skills";
 
 interface Items {
   name: string;
@@ -105,6 +106,7 @@ export default function App() {
         </div>
       </div>
 
+      <Skills />
     </>
   );
 }

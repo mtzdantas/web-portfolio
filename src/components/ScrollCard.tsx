@@ -5,6 +5,7 @@ interface ScrollCardProps {
   children: React.ReactNode;
   className?: string;
   targetId: string;
+  textColor?: string;
 }
 
 const ScrollCard: React.FC<ScrollCardProps> = ({
@@ -29,7 +30,9 @@ const ScrollCard: React.FC<ScrollCardProps> = ({
       onMouseLeave={() => setTexto(defaultText)}
       className={`cursor-pointer ${className}`}
     >
-      <p className="font-semibold text-md flex gap-2">{children}</p>
+      <p className={`font-semibold text-md flex gap-2`}>
+        {children}
+      </p>
     </div>
   );
 };

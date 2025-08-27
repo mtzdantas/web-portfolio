@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ProjectsCarousel from "../components/ProjectsCarousel";
@@ -9,7 +8,7 @@ interface Projects {
   link: string;
 }
 
-const Projects: FC = () => {
+export default function Projects() {
   const defaultText ="VOLTAR PARA PÁGINA INICIAL";
   const [texto, setTexto] = useState(defaultText);
 
@@ -52,5 +51,3 @@ const Projects: FC = () => {
     </div>
   );
 };
-
-export default Projects;
