@@ -25,6 +25,11 @@ h1 {
   background-clip: text;
 }
 
+h2 {
+  font-family: var(--font-prata);
+  color: var(--text-color);
+}
+
 p {
   font-family: var(--font-google);
   color: var(--text-color);
@@ -38,6 +43,11 @@ p {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: border 0.3s ease;
+}
+
+.glass-effect:hover {
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .text-gradient {

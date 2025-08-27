@@ -38,6 +38,7 @@ export default function Skills() {
     { category: "Backend", name: "FastAPI", percent: 40,},
     { category: "Backend", name: "Node", percent: 20,},
 
+    { category: "Banco de Dados", name: "SQL", percent: 60,},
     { category: "Banco de Dados", name: "PostgreSQL", percent: 50,},
 
     { category: "Outros", name: "Docker", percent: 40,},
@@ -53,19 +54,25 @@ export default function Skills() {
   }, {});
 
   return (
-    <div id="skills" className="flex flex-col justify-center relative px-6 md:px-16 py-8 gap-8">
+    <div id="skills" className="flex flex-col justify-center relative py-24 sm:py-32">
       {/* Detalhes Background */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute top-0 left-0 w-72 h-72 bg-indigo-600 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-emerald-600 rounded-full blur-3xl"></div>
       </div>
       
-      <div className="grid md:grid-cols-2 gap-8 z-10 relative">
+      <h2 className="font-semibold text-3xl xl:text-4xl">A magia por trás das telas</h2>
+      <p className="mt-1">Tecnologias que utilizo no meu trabalho.</p>
+
+      <div className="grid md:grid-cols-2 gap-8 mt-12">
         {Object.entries(groupedSkills).map(([categoryName, skills]) => {
         const category = categories.find(cat => cat.name === categoryName);
 
         return (
-          <div key={categoryName} className="glass-effect backdrop-blur-md rounded-xl p-6 shadow-lg">
+          <div 
+            key={categoryName} 
+            className="glass-effect backdrop-blur-md rounded-xl p-6 shadow-lg"
+          >
             <div className="flex items-center mb-6 gap-2">
               <span style={{background: `linear-gradient(to right, ${category?.color1}, ${category?.color2})`,}}className="p-2 rounded-full text-white">{category?.icon}</span>
               <p className="text-xl font-semibold">{category?.name}</p>
@@ -78,10 +85,10 @@ export default function Skills() {
                   </div>
                   <div className="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
                     <div
-                      className="h-2 rounded-full bg-gray-300"
+                      className="h-2 rounded-full"
                       style={{
                         width: `${skill.percent}%`,
-                        
+                        backgroundImage: `linear-gradient(to right, ${category?.color1}, ${category?.color2})`,
                       }}
                     ></div>
                   </div>
