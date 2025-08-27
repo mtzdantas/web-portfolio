@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import LinkCard from "./components/LinkCard";
 import ScrollCard from "./components/ScrollCard";
-import Projects from "./screens/Projects";
 import { Flame, Lightbulb, BriefcaseBusiness } from "lucide-react";
 
 interface Items {
