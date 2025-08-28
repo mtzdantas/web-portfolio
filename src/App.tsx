@@ -47,7 +47,7 @@ export default function App() {
 
   return (
     <>
-      <div className="px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 flex flex-col max-w-[1600px] mx-auto">
+      <div className="px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 flex flex-col max-w-[1600px] mx-auto overflow-clip sm:overflow-visible">
         {/* Navbar */}
         <nav className="fixed w-fit justify-center top-4 left-1/2 -translate-x-1/2 z-50 flex items-center glass-effect px-6 sm:px-8 py-3 sm:py-4 shadow-lg gap-8 text-gradient rounded-full">
           {navitens.map((item) => (
