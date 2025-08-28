@@ -28,14 +28,14 @@ export default function About() {
 
   return (
     <section id="about" className="py-24 sm:py-32 relative">
-    <h2 className="font-semibold text-3xl xl:text-4xl text-center">
+    <h2 className="font-semibold text-3xl xl:text-4xl text-center text-gradient">
       Quem faz a mágica acontecer
     </h2>
     <p className="mt-1 text-center">Toda minha trajetória no mundo da tecnologia.</p>
 
     <div ref={containerRef} className="relative mt-12">
       <motion.div
-        className="absolute left-3 sm:left-1/2 top-0 w-[3px] bg-emerald-500 rounded-full"
+        className="absolute left-3 sm:left-1/2 top-0 w-[3px] bg-gradient-to-b from-[#6366f1] via-[#ffffff] to-[#10b981] rounded-full"
         style={{ height: lineHeight, transform: "translateX(-50%)" }}
       />
 
@@ -50,9 +50,9 @@ export default function About() {
             viewport={{ amount: 0.6 }}
             transition={{ duration: 0.4, delay: index * 0.2 }}
           >
-            <div className={`max-w-[230px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[400px] ${isLeft ? "text-right" : "text-left"}`}>
+            <div className={`max-w-[240px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[400px] ${isLeft ? "text-right" : "text-left"}`}>
               <p className="mb-4">{item.year}</p>
-              <h2 className="text-xl font-semibold mb-1">{item.title}</h2>
+              <h2 className="text-xl font-semibold mb-1 text-gradient">{item.title}</h2>
               <p className="text-gray-300">{item.text}</p>
             </div>
           </motion.div>
