@@ -45,7 +45,7 @@ export default function About() {
         return (
           <motion.div
             key={index}
-            className={`relative mb-12 flex w-full ${isLeft ? "justify-end pr-8" : "justify-start pl-8"}`}
+            className={`relative mb-12 flex w-full ${isLeft ? "justify-end pr-4" : "justify-start pl-4"}`}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ amount: 0.6 }}
@@ -59,7 +59,7 @@ export default function About() {
               <div className="absolute -bottom-1/4 left-0 -z-10 w-55 h-55 bg-emerald-600 rounded-full blur-3xl"></div>
             )}
             <div className={`p-4 rounded-2xl transition-all duration-400
-      hover:bg-white/5 hover:backdrop-blur-md hover:border hover:border-white/10 max-w-[240px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[400px] ${isLeft ? "text-right" : "text-left"}`}>
+      hover:bg-white/5 hover:backdrop-blur-md hover:border hover:border-white/10 max-w-[250px] md:max-w-[300px] lg:max-w-[400px] ${isLeft ? "text-right" : "text-left"}`}>
               <p className="mb-4">{item.year}</p>
               <h2 className="text-xl font-semibold mb-1 text-gradient">{item.title}</h2>
               <p className="">{item.text}</p>
