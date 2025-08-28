@@ -26,7 +26,7 @@ export default function Projects() {
   };
 
   return (
-    <div id="projects" className="flex flex-col justify-center h-screen bg-gradient-to-r from-[#222222] to-[#121212]  text-white relative">
+    <section id="projects" className="flex flex-col justify-center h-screen bg-gradient-to-r from-[#222222] to-[#121212]  text-white relative">
       <AnimatePresence mode="wait">
         <motion.p
           key={texto}
@@ -48,6 +48,6 @@ export default function Projects() {
           defaultText={defaultText}
         />
       </div>
-    </div>
+    </section>
   );
 };

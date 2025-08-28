@@ -1,4 +1,5 @@
 import { Brain, Database, HardDrive, PanelsTopLeft, Wrench } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface Category {
   name: string;
@@ -54,7 +55,7 @@ export default function Skills() {
   }, {});
 
   return (
-    <div id="skills" className="flex flex-col justify-center relative py-24 sm:py-32">
+    <section id="skills" className="flex flex-col justify-center relative py-24 sm:py-32">
       {/* Detalhes Background */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute top-0 left-0 w-72 h-72 bg-indigo-600 rounded-full blur-3xl"></div>
@@ -69,36 +70,43 @@ export default function Skills() {
         const category = categories.find(cat => cat.name === categoryName);
 
         return (
-          <div 
-            key={categoryName} 
-            className="glass-effect backdrop-blur-md rounded-xl p-6 shadow-lg"
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6,}}
           >
-            <div className="flex items-center mb-6 gap-2">
-              <span style={{background: `linear-gradient(to right, ${category?.color1}, ${category?.color2})`,}}className="p-2 rounded-full text-white">{category?.icon}</span>
-              <p className="text-xl font-semibold">{category?.name}</p>
-            </div>
-            <div className="flex flex-col gap-4">
-              {skills.map((skill) => (
-                <div key={skill.name}>
-                  <div className="flex justify-between mb-1">
-                    <p>{skill.name}</p>
+            <div 
+              key={categoryName} 
+              className="glass-effect backdrop-blur-md rounded-xl p-6 shadow-lg"
+            >
+              <div className="flex items-center mb-6 gap-2">
+                <span style={{background: `linear-gradient(to right, ${category?.color1}, ${category?.color2})`,}}className="p-2 rounded-full text-white">{category?.icon}</span>
+                <p className="text-xl font-semibold">{category?.name}</p>
+              </div>
+              <div className="flex flex-col gap-4">
+                {skills.map((skill) => (
+                  <div key={skill.name}>
+                    <div className="flex justify-between mb-1">
+                      <p>{skill.name}</p>
+                    </div>
+                    <div className="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
+                      <div
+                        className="h-2 rounded-full"
+                        style={{
+                          width: `${skill.percent}%`,
+                          backgroundImage: `linear-gradient(to right, ${category?.color1}, ${category?.color2})`,
+                        }}
+                      ></div>
+                    </div>
                   </div>
-                  <div className="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
-                    <div
-                      className="h-2 rounded-full"
-                      style={{
-                        width: `${skill.percent}%`,
-                        backgroundImage: `linear-gradient(to right, ${category?.color1}, ${category?.color2})`,
-                      }}
-                    ></div>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
+          </motion.div>
         );
       })}
       </div>
-    </div>
+    </section>
   );
 }

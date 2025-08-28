@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import LinkCard from "./components/LinkCard";
 import ScrollCard from "./components/ScrollCard";
 import { Flame, TreePalm, BriefcaseBusiness } from "lucide-react";
+import About from "./screens/About";
 import Skills from "./screens/Skills";
 
 interface Items {
@@ -34,7 +35,7 @@ export default function App() {
   };
 
   const navitens: Items[] = [
-    { icon: <TreePalm/> , name: "Sobre", target: "sobre", textoHover: "Toda minha trajétoria que me trouxe até aqui e me tornou quem eu sou hoje.", },
+    { icon: <TreePalm/> , name: "Sobre", target: "about", textoHover: "Toda minha trajétoria que me trouxe até aqui e me tornou quem eu sou hoje.", },
     { icon: <Flame/> , name: "Skills", target: "skills", textoHover: "Tecnologias e ferramentas que domino e faço uso no meu dia a dia.", },
     { icon: <BriefcaseBusiness/> , name: "Projetos", target: "projects", textoHover: "Projetos que desenvolvi, desafios que superei e soluções que criei.",},
   ];
@@ -106,7 +107,7 @@ export default function App() {
             </div>
           </div>
         </div>
-
+        <About />
         <Skills />
       </div>
     </>

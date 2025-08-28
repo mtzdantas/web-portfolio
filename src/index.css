@@ -10,6 +10,9 @@
   /* Variáveis de Cores */
   --site-background: #030712;
   --text-color: #FFFFFF;
+  --gradient-start: #6366f1;
+  --gradient-middle: #ffffff;
+  --gradient-end: #10b981;
 }
 
 body {
@@ -51,7 +54,7 @@ p {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #6366f1 0%, #ffffff 50%, #10b981 100%);
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-middle) 50%, var(--gradient-end) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
