@@ -28,6 +28,7 @@ export default function About() {
 
   return (
     <section id="about" className="py-24 sm:py-32 relative">
+
     <h2 className="font-semibold text-3xl xl:text-4xl text-center text-gradient">
       Quem faz a mágica acontecer
     </h2>
@@ -44,16 +45,24 @@ export default function About() {
         return (
           <motion.div
             key={index}
-            className={`mb-12 flex w-full ${isLeft ? "justify-end pr-8" : "justify-start pl-8"}`}
+            className={`relative mb-12 flex w-full ${isLeft ? "justify-end pr-8" : "justify-start pl-8"}`}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ amount: 0.6 }}
             transition={{ duration: 0.4, delay: index * 0.2 }}
-          >
-            <div className={`max-w-[240px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[400px] ${isLeft ? "text-right" : "text-left"}`}>
+          > 
+            {isLeft && (
+              <div className="absolute -bottom-1/4 right-0 -z-10 w-65 h-65 bg-indigo-600 rounded-full blur-3xl"></div>
+            )}
+
+            {!isLeft && (
+              <div className="absolute -bottom-1/4 left-0 -z-10 w-55 h-55 bg-emerald-600 rounded-full blur-3xl"></div>
+            )}
+            <div className={`p-4 rounded-2xl transition-all duration-400
+      hover:bg-white/5 hover:backdrop-blur-md hover:border hover:border-white/10 max-w-[240px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[400px] ${isLeft ? "text-right" : "text-left"}`}>
               <p className="mb-4">{item.year}</p>
               <h2 className="text-xl font-semibold mb-1 text-gradient">{item.title}</h2>
-              <p className="text-gray-300">{item.text}</p>
+              <p className="">{item.text}</p>
             </div>
           </motion.div>
         )
