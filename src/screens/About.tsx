@@ -58,8 +58,8 @@ export default function About() {
             {!isLeft && (
               <div className="absolute -bottom-1/4 left-0 -z-10 w-55 h-55 bg-emerald-600 rounded-full blur-3xl"></div>
             )}
-            <div className={`p-4 rounded-2xl transition-all duration-400
-      hover:bg-white/5 hover:backdrop-blur-md hover:border hover:border-white/10 max-w-[260px] md:max-w-[300px] lg:max-w-[400px] ${isLeft ? "text-right" : "text-left"}`}>
+            <div className={`p-4 rounded-lg transition-all duration-300
+      hover:bg-white/5 hover:shadow-xl hover:border hover:border-white/10 max-w-[260px] md:max-w-[300px] lg:max-w-[400px] ${isLeft ? "text-right" : "text-left"}`}>
               <p className="mb-4">{item.year}</p>
               <h2 className="text-xl font-semibold mb-1 text-gradient">{item.title}</h2>
               <p className="">{item.text}</p>
