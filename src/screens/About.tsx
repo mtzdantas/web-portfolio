@@ -14,7 +14,7 @@ const timelineData: TimelineItem[] = [
 
   { year: "2024", title: "De aprendiz a profissional", text: "Além das disciplinas acadêmicas, investi muito no aprendizado autodidata por meio de cursos e imersões (principalmente em Análise de Dados, Programação Web e outras ferramentas necessárias). Nesse período, desenvolvi diversos projetos acadêmicos, pessoais e tive minha primeira experiência como freelancer na área de frontend." },
 
-  { year: "2025", title: "Rumo à carreira de dev", text: "Desde então, venho participando de novos projetos como freelancer, expandindo meus conhecimentos também em backend e atualmente atuo como estagiário em suporte técnico. Estou em busca da minha primeira oportunidade efetiva como desenvolvedor ou analistada de dados." },
+  { year: "2025", title: "Rumo à carreira de dev", text: "Desde então, venho participando de novos projetos como freelancer, expandindo meus conhecimentos também em backend e atualmente atuo como estagiário em suporte técnico. Estou em busca da minha primeira oportunidade efetiva como desenvolvedor ou analista de dados." },
 ];
 
 export default function About() {
