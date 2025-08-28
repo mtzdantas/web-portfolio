@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import LinkCard from "./components/LinkCard";
 import ScrollCard from "./components/ScrollCard";
-import { Flame, TreePalm, BriefcaseBusiness } from "lucide-react";
+import { Flame, Clapperboard, BriefcaseBusiness, Send} from "lucide-react";
 import About from "./screens/About";
 import Skills from "./screens/Skills";
 
@@ -35,9 +35,10 @@ export default function App() {
   };
 
   const navitens: Items[] = [
-    { icon: <TreePalm/> , name: "Sobre", target: "about", textoHover: "Toda minha trajétoria que me trouxe até aqui e me tornou quem eu sou hoje.", },
+    { icon: <Clapperboard/> , name: "Sobre", target: "about", textoHover: "Toda minha trajétoria que me trouxe até aqui e me tornou quem eu sou hoje.", },
     { icon: <Flame/> , name: "Skills", target: "skills", textoHover: "Tecnologias e ferramentas que domino e faço uso no meu dia a dia.", },
     { icon: <BriefcaseBusiness/> , name: "Projetos", target: "projects", textoHover: "Projetos que desenvolvi, desafios que superei e soluções que criei.",},
+    { icon: <Send/> , name: "Contato", target: "contact", textoHover: "Ficou interessado? Fala comigo no whats ou me manda um e-mail!",},
   ];
 
   const contactItens: Items[] = [
