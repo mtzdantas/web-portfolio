@@ -52,14 +52,14 @@ export default function About() {
             transition={{ duration: 0.4, delay: index * 0.2 }}
           > 
             {isLeft && (
-              <div className="absolute -bottom-1/4 right-0 -z-10 w-65 h-65 bg-indigo-600 rounded-full blur-3xl"></div>
+              <div className="absolute -bottom-1/4 -right-2/4 sm:right-0 -z-10 w-65 h-65 bg-indigo-600 rounded-full blur-3xl"></div>
             )}
 
             {!isLeft && (
-              <div className="absolute -bottom-1/4 left-0 -z-10 w-55 h-55 bg-emerald-600 rounded-full blur-3xl"></div>
+              <div className="absolute -bottom-1/4 -left-2/4 sm:left-0 -z-10 w-55 h-55 bg-emerald-600 rounded-full blur-3xl"></div>
             )}
             <div className={`p-4 rounded-lg transition-all duration-300
-      hover:bg-white/5 hover:shadow-xl hover:border hover:border-white/10 max-w-[260px] md:max-w-[300px] lg:max-w-[400px] ${isLeft ? "text-right" : "text-left"}`}>
+      hover:bg-white/5 hover:shadow-xl hover:border hover:border-white/10 max-w-[280px] md:max-w-[300px] lg:max-w-[400px] ${isLeft ? "text-right" : "text-left"}`}>
               <p className="mb-4">{item.year}</p>
               <h2 className="text-xl font-semibold mb-1 text-gradient">{item.title}</h2>
               <p className="">{item.text}</p>
