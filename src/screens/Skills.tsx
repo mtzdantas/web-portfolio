@@ -78,7 +78,7 @@ export default function Skills() {
           >
             <div 
               key={categoryName} 
-              className="glass-effect backdrop-blur-md rounded-xl p-6 shadow-lg"
+              className="glass-effect rounded-xl p-6 shadow-lg"
             >
               <div className="flex items-center mb-6 gap-2">
                 <span style={{background: `linear-gradient(to right, ${category?.color1}, ${category?.color2})`,}}className="p-2 rounded-full text-white">{category?.icon}</span>
