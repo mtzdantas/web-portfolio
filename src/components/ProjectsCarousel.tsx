@@ -37,7 +37,7 @@ const ProjectsCarousel: FC<ProjectsCarouselProps> = ({ projects, speed, classNam
       {projects.map((proj, index) => (
         <SwiperSlide key={index}>
           <motion.div
-            className="shadow-lg w-full"
+            className="shadow-lg"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}

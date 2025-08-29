@@ -67,10 +67,6 @@ export default function App() {
         <Projects />
         <Contact />
       </div>
-      
-      <footer className="w-full p-6">
-        <p className="text-sm text-center">&copy; {new Date().getFullYear()} Mateus Dantas</p>
-      </footer>
     </div>
   );
 }

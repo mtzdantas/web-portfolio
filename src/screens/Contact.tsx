@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { SendHorizontal, Mails, PhoneCall } from "lucide-react";
+import { SendHorizontal } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   const [messages, setMessages] = useState([
@@ -55,7 +56,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="flex flex-col items-center relative py-24 sm:py-32">
+    <section id="contact" className="flex flex-col h-screen items-center relative py-24 sm:py-32">
       {/* Detalhes Background */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-72 h-72 bg-indigo-600 rounded-full blur-3xl"></div>
@@ -64,19 +65,8 @@ export default function Contact() {
       
       <h2 className="font-semibold text-3xl xl:text-4xl text-center">Vamos conversar?</h2>
       <p className="mt-1 text-center">Não precisa ser tímido, me mande uma mensagem.</p>
-
-      <div className="flex flex-col gap-4 sm:flex-row mt-12 w-fit sm:w-[600px]">
-        <p className="flex gap-1 items-center bg-indigo-700 px-2 py-1 rounded-lg text-sm">
-          <Mails/>
-          mtzdantas@gmail.com
-        </p>
-        <p className="flex gap-1 items-center bg-emerald-700 px-2 py-1 rounded-lg text-sm">
-          <PhoneCall/>
-          +55 84 99801-8880
-        </p>
-      </div>
-
-      <div className="flex flex-col mt-6 p-4 w-full sm:w-[600px] h-[450px] bg-white/10 border border-white/10 hover:border-white/20 rounded-xl shadow-lg backdrop-blur-sm transition-all duration-200">
+      
+      <div className="flex flex-col mt-12 p-4 w-full sm:w-[600px] h-[400px] bg-white/10 border border-white/10 hover:border-white/20 rounded-xl shadow-lg backdrop-blur-sm transition-all duration-200">
         <div className="flex items-center gap-4 w-full border-b border-white/10 pb-4 mb-4">
           <img src="me.png" alt="Foto de perfil" className="h-10 w-10" />
           <div>
@@ -91,10 +81,14 @@ export default function Contact() {
           </div>
         </div>
         
-        <div className="flex flex-1 flex-col gap-4 overflow-y-hidden text-white">
+        <div className="flex flex-1 flex-col gap-4 overflow-hidden text-white">
           {messages.map((msg, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={msg.sender === "user" ? { opacity: 0, x: 30 } : { opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.6 }}
+              transition={{ duration: 0.6,}}
               className={`p-3 rounded-lg max-w-60 sm:max-w-xs ${
                 msg.sender === "user"
                   ? "self-end bg-indigo-600/70"
@@ -102,24 +96,30 @@ export default function Contact() {
               }`}
             >
               {msg.text}
-            </div>
+            </motion.div>
           ))}
 
           {!contactMethod && (
-            <div className="flex self-end gap-4">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.6 }}
+              transition={{ duration: 0.6,}}
+              className="flex self-end gap-4"
+            >
               <button
                 onClick={() => chooseContactMethod("whatsapp")}
-                className="bg-emerald-600/70 p-3 rounded-lg max-w-xs"
+                className="bg-emerald-600/70 p-3 rounded-lg max-w-xs hover:bg-emerald-700/70 transition-colors duration-300 cursor-pointer"
               >
                 Whatsapp
               </button>
               <button
                 onClick={() => chooseContactMethod("email")}
-                className="bg-indigo-600/70 p-3 rounded-lg max-w-xs"
+                className="bg-indigo-600/70 p-3 rounded-lg max-w-xs hover:bg-indigo-700/70 transition-colors duration-300 cursor-pointer"
               >
                 E-mail
               </button>
-            </div>
+            </motion.div>
           )}
           <div ref={messagesEndRef} />
         </div>
