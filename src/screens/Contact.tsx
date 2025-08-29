@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { SendHorizontal } from "lucide-react";
+import { SendHorizontal, Mails, PhoneCall } from "lucide-react";
 
 export default function Contact() {
   const [messages, setMessages] = useState([
@@ -55,7 +55,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="flex flex-col items-center h-screen relative py-24 sm:py-32">
+    <section id="contact" className="flex flex-col items-center relative py-24 sm:py-32">
       {/* Detalhes Background */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-72 h-72 bg-indigo-600 rounded-full blur-3xl"></div>
@@ -65,7 +65,18 @@ export default function Contact() {
       <h2 className="font-semibold text-3xl xl:text-4xl text-center">Vamos conversar?</h2>
       <p className="mt-1 text-center">Não precisa ser tímido, me mande uma mensagem.</p>
 
-      <div className="flex flex-col mt-12 p-4 w-full sm:w-[600px] h-[450px] bg-white/10 border border-white/10 hover:border-white/20 rounded-xl shadow-lg backdrop-blur-sm transition-all duration-200">
+      <div className="flex flex-col gap-4 sm:flex-row mt-12 w-fit sm:w-[600px]">
+        <p className="flex gap-1 items-center bg-indigo-700 px-2 py-1 rounded-lg text-sm">
+          <Mails/>
+          mtzdantas@gmail.com
+        </p>
+        <p className="flex gap-1 items-center bg-emerald-700 px-2 py-1 rounded-lg text-sm">
+          <PhoneCall/>
+          +55 84 99801-8880
+        </p>
+      </div>
+
+      <div className="flex flex-col mt-6 p-4 w-full sm:w-[600px] h-[450px] bg-white/10 border border-white/10 hover:border-white/20 rounded-xl shadow-lg backdrop-blur-sm transition-all duration-200">
         <div className="flex items-center gap-4 w-full border-b border-white/10 pb-4 mb-4">
           <img src="me.png" alt="Foto de perfil" className="h-10 w-10" />
           <div>
