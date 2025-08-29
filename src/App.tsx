@@ -49,6 +49,7 @@ export default function App() {
               textoHover={item.textoHover}
               defaultText={defaultText}
               setTexto={setTexto}
+              isMobile={isMobile}
             >
               {item.icon}
               {!isMobile && item.name}
@@ -61,6 +62,7 @@ export default function App() {
           defaultText={defaultText}
           texto={texto}
           setTexto={setTexto}
+          isMobile={isMobile}
         />
         <About />
         <Skills />

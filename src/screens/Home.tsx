@@ -6,6 +6,7 @@ interface HomeProps {
   defaultText: string;
   texto: string;
   setTexto: Dispatch<SetStateAction<string>>;
+  isMobile?: boolean;
 }
 
 interface Items {
@@ -15,7 +16,7 @@ interface Items {
   icon?: React.ReactNode;
 }
 
-const Home: FC<HomeProps> = ({ defaultText, texto, setTexto, }) => {
+const Home: FC<HomeProps> = ({ defaultText, texto, setTexto, isMobile}) => {
   const variants = {
     hidden: { opacity: 0, y: -20 },
     visible: { opacity: 1, y: 0 },
@@ -46,6 +47,7 @@ const Home: FC<HomeProps> = ({ defaultText, texto, setTexto, }) => {
               textoHover={item.textoHover}
               defaultText={defaultText}
               setTexto={setTexto}
+              isMobile={isMobile}
             >
               {item.name}
             </LinkCard>

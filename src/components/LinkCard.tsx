@@ -5,6 +5,7 @@ interface LinkCardProps {
   defaultText: string;
   setTexto: React.Dispatch<React.SetStateAction<string>>;
   children: React.ReactNode;
+  isMobile: boolean;
   className?: string;
 }
 
@@ -14,6 +15,7 @@ const LinkCard: React.FC<LinkCardProps> = ({
   defaultText,
   setTexto,
   children,
+  isMobile,
   className,
 }) => {
   return (
@@ -21,8 +23,8 @@ const LinkCard: React.FC<LinkCardProps> = ({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      onMouseEnter={() => setTexto(textoHover)}
-      onMouseLeave={() => setTexto(defaultText)}
+      onMouseEnter={() => !isMobile && setTexto(textoHover)}
+      onMouseLeave={() => !isMobile && setTexto(defaultText)}
       className={`group flex glass-effect px-4 py-2 shadow-lg ${className}`}
     >
       <p className="font text-md">{children}</p>

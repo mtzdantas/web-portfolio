@@ -6,6 +6,7 @@ interface ScrollCardProps {
   className?: string;
   targetId: string;
   textColor?: string;
+  isMobile: boolean;
 }
 
 const ScrollCard: React.FC<ScrollCardProps> = ({
@@ -15,6 +16,7 @@ const ScrollCard: React.FC<ScrollCardProps> = ({
   children,
   className,
   targetId,
+  isMobile,
 }) => {
   const handleScroll = () => {
     const target = document.getElementById(targetId);
@@ -26,8 +28,8 @@ const ScrollCard: React.FC<ScrollCardProps> = ({
   return (
     <div
       onClick={handleScroll}
-      onMouseEnter={() => setTexto(textoHover)}
-      onMouseLeave={() => setTexto(defaultText)}
+      onMouseEnter={() => !isMobile && setTexto(textoHover)}
+      onMouseLeave={() => !isMobile && setTexto(defaultText)}
       className={`cursor-pointer ${className}`}
     >
       <p className={`font-semibold text-md flex gap-2`}>
