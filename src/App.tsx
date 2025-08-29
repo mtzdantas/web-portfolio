@@ -6,6 +6,7 @@ import { Flame, Clapperboard, BriefcaseBusiness, Send} from "lucide-react";
 import About from "./screens/About";
 import Skills from "./screens/Skills";
 import Projects from "./screens/Projects";
+import Contact from "./screens/Contact";
 
 interface Items {
   name: string;
@@ -112,6 +113,7 @@ export default function App() {
         <About />
         <Skills />
         <Projects />
+        <Contact />
       </div>
     </>
   );

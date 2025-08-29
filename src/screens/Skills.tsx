@@ -55,7 +55,7 @@ export default function Skills() {
   }, {});
 
   return (
-    <section id="skills" className="flex flex-col justify-center relative py-24 sm:py-32">
+    <section id="skills" className="flex flex-col relative py-24 sm:py-32">
       {/* Detalhes Background */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute top-0 left-0 w-72 h-72 bg-indigo-600 rounded-full blur-3xl"></div>

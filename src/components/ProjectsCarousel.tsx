@@ -40,8 +40,8 @@ const ProjectsCarousel: FC<ProjectsCarouselProps> = ({ projects, speed, classNam
             className="shadow-lg w-full"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.4, delay: index * 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
           >
             <img
               src={proj.image}
