@@ -5,6 +5,7 @@ import ScrollCard from "./components/ScrollCard";
 import { Flame, Clapperboard, BriefcaseBusiness, Send} from "lucide-react";
 import About from "./screens/About";
 import Skills from "./screens/Skills";
+import Projects from "./screens/Projects";
 
 interface Items {
   name: string;
@@ -110,6 +111,7 @@ export default function App() {
         </div>
         <About />
         <Skills />
+        <Projects />
       </div>
     </>
   );

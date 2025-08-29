@@ -7,47 +7,43 @@ import { Autoplay } from "swiper/modules";
 interface Project {
   name: string;
   image: string;
-  link: string;
 }
 
 interface ProjectsCarouselProps {
   projects: Project[];
-  setTexto: (texto: string) => void;
-  defaultText: string;
   className?: string;
   reverse?: boolean;
+  speed?: number;
 }
 
-const ProjectsCarousel: FC<ProjectsCarouselProps> = ({ projects, setTexto, defaultText, reverse = false, className }) => {
+const ProjectsCarousel: FC<ProjectsCarouselProps> = ({ projects, speed, className }) => {
   return (
     <Swiper
       modules={[Autoplay]}
       spaceBetween={24}
-      slidesPerView={3}
       loop={true}
       autoplay={{
         delay: 0,
         disableOnInteraction: false,
         pauseOnMouseEnter: false,
-        reverseDirection: reverse,
       }}
-      speed={8000}
+      speed={speed}
       allowTouchMove={false}
-      className={className}
+      breakpoints={{
+        320: { slidesPerView: 1 },
+        640: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      }}
     >
       {projects.map((proj) => (
         <SwiperSlide>
-          <a href={proj.link} target="_blank" rel="noopener noreferrer">
-            <div className="shadow-lg overflow-hidden w-full md:h-60 lg:h-70 xl:h-80">
-              <img
-                src={proj.image}
-                alt={proj.name}
-                className="w-full h-full object-cover transition-all duration-200 grayscale hover:grayscale-0"
-                onMouseEnter={() => setTexto(proj.name)}
-                onMouseLeave={() => setTexto(defaultText)}
-              />
-            </div>
-          </a>
+          <div className="shadow-lg w-full">
+            <img
+              src={proj.image}
+              alt={proj.name}
+              className={className}
+            />
+          </div>
         </SwiperSlide>
       ))}
     </Swiper>

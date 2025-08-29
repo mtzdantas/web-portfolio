@@ -1,51 +1,41 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import ProjectsCarousel from "../components/ProjectsCarousel";
 
 interface Projects {
   name: string;
   image: string;
-  link: string;
 }
 
 export default function Projects() {
-  const defaultText ="VOLTAR PARA PÁGINA INICIAL";
-  const [texto, setTexto] = useState(defaultText);
 
   const projects: Projects[] = [
-    { name: "SITE DE LANÇAMENTO DO IPHONE 16", image: "/Iphone.png", link: "#" },
-    { name: "SITE DE LANÇAMENTO DO IPHONE 16", image: "/Iphone.png", link: "#" },
-    { name: "SITE DE LANÇAMENTO DO IPHONE 16", image: "/Iphone.png", link: "#" },
-    { name: "SITE DE LANÇAMENTO DO IPHONE 16", image: "/Iphone.png", link: "#" },
+    { name: "Landing Page feita para o iFood", image: "/ifood.png",},
+    { name: "Landing Page feita para o iFood", image: "/ifood.png",},
+    { name: "Landing Page feita para o iFood", image: "/ifood.png",},
+    { name: "Landing Page feita para o iFood", image: "/ifood.png",},
   ];
 
-  const variants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: 20 },
-  };
-
   return (
-    <section id="projects" className="flex flex-col justify-center h-screen bg-gradient-to-r from-[#222222] to-[#121212]  text-white relative">
-      <AnimatePresence mode="wait">
-        <motion.p
-          key={texto}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          variants={variants}
-          transition={{ duration: 0.2 }}
-          className="absolute top-8 left-1/2 -translate-x-1/2 font-bold cursor-pointer"
-        >
-          {texto}
-        </motion.p>
-      </AnimatePresence>
+    <section id="projects" className="flex flex-col py-24 sm:py-32 relative">
+      {/* Detalhes Background */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <div className="absolute top-0 right-1/2 w-86 h-86 bg-indigo-600 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-110 h-110 bg-emerald-600 rounded-full blur-3xl"></div>
+      </div>
 
-      <div>
+      <h2 className="font-semibold text-3xl xl:text-4xl">Experimentos que deram certo</h2>
+      <p className="mt-1">Alguns projetos que transformei em realidade.</p>
+
+      <div className="mt-8">
         <ProjectsCarousel 
-          projects={projects} 
-          setTexto={setTexto} 
-          defaultText={defaultText}
+          projects={projects}
+          className="pt-4 relative transition-transform duration-500 ease-in-out hover:-translate-y-4"
+          speed={7000}
+        />
+
+        <ProjectsCarousel 
+          projects={projects}
+          className="mt-6 pb-4 relative transition-transform duration-500 ease-in-out hover:translate-y-4"
+          speed={5000}
         />
       </div>
     </section>

@@ -48,7 +48,7 @@ export default function About() {
             className={`relative mb-12 flex w-full ${isLeft ? "justify-end pr-4" : "justify-start pl-4"}`}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ amount: 0.6 }}
+            viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.4, delay: index * 0.2 }}
           > 
             {isLeft && (
