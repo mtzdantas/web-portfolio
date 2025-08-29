@@ -6,7 +6,7 @@ interface HomeProps {
   defaultText: string;
   texto: string;
   setTexto: Dispatch<SetStateAction<string>>;
-  isMobile?: boolean;
+  isMobile: boolean;
 }
 
 interface Items {
