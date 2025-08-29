@@ -1,9 +1,8 @@
-// components/ProjectsCarousel.tsx
 import type { FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import { motion } from "framer-motion";
 
-// Tipagem para os projetos
 interface Project {
   name: string;
   image: string;
@@ -35,15 +34,21 @@ const ProjectsCarousel: FC<ProjectsCarouselProps> = ({ projects, speed, classNam
         1024: { slidesPerView: 3 },
       }}
     >
-      {projects.map((proj) => (
-        <SwiperSlide>
-          <div className="shadow-lg w-full">
+      {projects.map((proj, index) => (
+        <SwiperSlide key={index}>
+          <motion.div
+            className="shadow-lg w-full"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.4, delay: index * 0.2 }}
+          >
             <img
               src={proj.image}
               alt={proj.name}
               className={className}
             />
-          </div>
+          </motion.div>
         </SwiperSlide>
       ))}
     </Swiper>
