@@ -86,9 +86,8 @@ export default function Contact() {
             <motion.div
               key={index}
               initial={msg.sender === "user" ? { opacity: 0, x: 30 } : { opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 0.6,}}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5,}}
               className={`p-3 rounded-lg max-w-60 sm:max-w-xs ${
                 msg.sender === "user"
                   ? "self-end bg-indigo-600/70"
