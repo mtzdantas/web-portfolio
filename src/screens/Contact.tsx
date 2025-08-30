@@ -10,6 +10,7 @@ export default function Contact() {
   const [input, setInput] = useState("");
   const [contactMethod, setContactMethod] = useState<"whatsapp" | "email" | null>(null);
   const [hasSentMessage, setHasSentMessage] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   
@@ -25,9 +26,17 @@ export default function Contact() {
     setMessages(prev => [
       ...prev,
       { sender: "user", text: input },
-      { sender: "mateus", text: "Em breve estarei te respondendo, obrigado por entrar em contato!" }
     ]);
 
+    setIsTyping(true);
+
+    setTimeout(() => {
+      setIsTyping(false);
+      setMessages(prev => [
+        ...prev,
+        { sender: "mateus", text: "Em breve estarei te respondendo, obrigado por entrar em contato!" }
+      ]);
+    }, 1500);
     const encodedMessage = encodeURIComponent(input);
 
     if (contactMethod === "whatsapp") {
@@ -47,12 +56,21 @@ export default function Contact() {
 
   const chooseContactMethod = (method: "whatsapp" | "email") => {
     setContactMethod(method);
-
+    
     setMessages(prev => [
       ...prev,
       { sender: "user", text: method === "whatsapp" ? "Whatsapp" : "E-mail" },
-      { sender: "mateus", text: "Entendi, agora me fala, do que você precisa?" }
     ]);
+
+    setIsTyping(true);
+
+    setTimeout(() => {
+      setIsTyping(false);
+      setMessages(prev => [
+        ...prev,
+        { sender: "mateus", text: "Entendi, agora me fala, do que você precisa?" }
+      ]);
+    }, 1500);
   };
 
   return (
@@ -119,6 +137,13 @@ export default function Contact() {
                 E-mail
               </button>
             </motion.div>
+          )}
+          {isTyping && (
+            <div className="p-3 rounded-lg bg-white/10 w-fit flex gap-1 items-center">
+              <span className="w-1.5 h-1.5 bg-white/50 rounded-full animate-bounce" />
+              <span className="w-1.5 h-1.5 bg-white/50 rounded-full animate-bounce" />
+              <span className="w-1.5 h-1.5 bg-white/50 rounded-full animate-bounce" />
+            </div>
           )}
           <div ref={messagesEndRef} />
         </div>
