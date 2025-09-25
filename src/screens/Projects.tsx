@@ -8,10 +8,10 @@ interface Projects {
 export default function Projects() {
 
   const projects: Projects[] = [
-    { name: "Landing Page feita para o iFood", image: "/ifood.png",},
-    { name: "Landing Page feita para o iFood", image: "/ifood.png",},
-    { name: "Landing Page feita para o iFood", image: "/ifood.png",},
-    { name: "Landing Page feita para o iFood", image: "/ifood.png",},
+    { name: "Futuramente terá algum projeto aqui.", image: "/embreve.png",},
+    { name: "Futuramente terá algum projeto aqui.", image: "/embreve.png",},
+    { name: "Futuramente terá algum projeto aqui.", image: "/embreve.png",},
+    { name: "Futuramente terá algum projeto aqui.", image: "/embreve.png",},
   ];
 
   return (
